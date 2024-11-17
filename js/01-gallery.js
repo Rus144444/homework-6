@@ -1,8 +1,16 @@
-const inputEl = document.querySelector("#font-size-control");
-const spanEl = document.querySelector("#text");
+const formEl = document.querySelector(".login-form");
 
-inputEl.addEventListener("change", handlerChangeOnInput);
+formEl.addEventListener("submit", handleSubmit);
 
-function handlerChangeOnInput(event) {
-  spanEl.style.fontSize = `${inputEl.value}px`;
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const email = form.elements.email.value;
+  const password = form.elements.password.value;
+  if (email === "" || password === "") {
+    return console.log("Please fill in all the fields!");
+  }
+
+  console.log(`Login: ${email}, Password: ${password}`);
+  form.reset();
 }
