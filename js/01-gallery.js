@@ -1,44 +1,50 @@
-const ingredients = [
-  "Potatoes",
-  "Mushrooms",
-  "Garlic",
-  "Tomatos",
-  "Herbs",
-  "Condiments",
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
 ];
-
-const list = document.querySelector(".ingredients");
 
 // #1
 
-// const markup = ingredients
-//   .map((item) => `<li class='item'>${item}</li>`)
-//   .join("");
-// console.log(markup);
-// list.insertAdjacentHTML("beforebegin", markup);
+// const list = document.querySelector(".gallery");
+// console.log(list);
 
-// #2
-
-// const markup = [];
-
-// for (let i = 0; i < ingredients.length; i++) {
+// const items = images.map((element) => {
 //   const item = document.createElement("li");
 //   item.classList.add("item");
-//   item.textContent = ingredients[i];
-//   markup.push(item);
-// }
+//   const img = document.createElement("img");
+//   img.classList.add("img");
+//   img.setAttribute(
+//     "url",
+//     "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260"
+//   );
+//   img.setAttribute("alt", "White and Black Long Fur Cat");
+//   item.append(img);
+//   return item;
+// });
 
-// console.log(markup);
-// list.append(...markup);
+// console.log(items);
+// list.append(...items);
 
-// #3
+// # 2
 
-const markup = ingredients.map((el) => {
-  const item = document.createElement("li");
-  item.classList.add("item");
-  item.textContent = el;
-  return item;
-});
+const list = document.querySelector(".gallery");
+console.log(list);
 
-console.log(markup);
-list.append(...markup);
+const items = images
+  .map(({ url, alt }) => {
+    return `<li class='item'><img url='${url}' alt='${alt}'></li>`;
+  })
+  .join(" ");
+
+console.log(items);
+list.insertAdjacentHTML("beforebegin", items);
