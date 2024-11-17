@@ -1,12 +1,8 @@
-const inputEl = document.querySelector("#validation-input");
-console.log(inputEl);
+const inputEl = document.querySelector("#font-size-control");
+const spanEl = document.querySelector("#text");
 
-inputEl.addEventListener("change", handelValidationInput);
+inputEl.addEventListener("change", handlerChangeOnInput);
 
-function handelValidationInput() {
-  if (inputEl.getAttribute("data-length") >= inputEl.value.length) {
-    inputEl.style.borderColor = "green";
-  } else {
-    inputEl.style.borderColor = "red";
-  }
+function handlerChangeOnInput(event) {
+  spanEl.style.fontSize = `${inputEl.value}px`;
 }
